@@ -1,0 +1,42 @@
+
+# ==========================================
+# NEO AI - WEB APP AUTOMATIZACION IA
+# Practica 3.4
+# ==========================================
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuraciones locales de editores
+.vscode/
+.idea/
+
+# Dependencias
+node_modules/
+
+# Archivos de entorno y credenciales
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Archivos temporales y registros
+*.log
+*.tmp
+*.temp
+
+# Archivos de respaldo
+*.bak
+*.swp
+*~
+
+# Carpetas de compilacion
+dist/
+build/
+
+# Archivos de cache
+.cache/
+.cache-*/

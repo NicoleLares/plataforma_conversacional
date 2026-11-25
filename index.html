@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <!-- =====================================
+         CONFIGURACION GENERAL
+    ====================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Aplicación web académica de Inteligencia Artificial Aplicada a las TICS, integrada con OpenAI y n8n Cloud.">
+
+    <meta name="author"
+          content="Nicole Dayana Esparza Lares">
+
+    <meta name="theme-color"
+          content="#6546e8">
+
+    <title>
+        Asistente Académico IA | Automatización IA
+    </title>
+
+    <!-- FAVICON PERSONALIZADO -->
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="./assets/favicon.svg"
+    >
+
+    <!-- BOOTSTRAP 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
+    >
+
+    <!-- ESTILOS PERSONALIZADOS -->
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================
+         ENCABEZADO PRINCIPAL
+    ====================================== -->
+
+    <header class="app-header py-5">
+
+        <div class="container text-center">
+
+            <h1 class="fw-bold mb-3">
+                Asistente Académico IA
+            </h1>
+
+            <p class="lead mb-2">
+                Automatización inteligente con OpenAI y n8n Cloud
+            </p>
+
+            <p class="mb-0 fw-semibold">
+                Inteligencia Artificial Aplicada a las TICS
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CONTENIDO PRINCIPAL
+    ====================================== -->
+
+    <main class="container my-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-lg-9 col-xl-8">
+
+
+                <!-- =====================================
+                     FORMULARIO DE CONSULTA
+                ====================================== -->
+
+                <section class="card app-card mb-4">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="h4 fw-bold mb-3">
+                            Realiza tu consulta
+                        </h2>
+
+                        <p class="text-secondary mb-4">
+                            Selecciona el tema, nivel académico
+                            e integración para consultar al asistente
+                            de inteligencia artificial.
+                        </p>
+
+
+                        <form
+                            id="formConsulta"
+                            novalidate
+                        >
+
+
+                            <!-- =========================
+                                 CAMPO TEMA
+                            ========================== -->
+
+                            <div class="mb-3">
+
+                                <label
+                                    for="tema"
+                                    class="form-label fw-semibold"
+                                >
+                                    Tema
+                                </label>
+
+                                <select
+                                    id="tema"
+                                    name="tema"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecciona un tema
+                                    </option>
+
+                                    <option value="Inteligencia artificial">
+                                        Inteligencia artificial
+                                    </option>
+
+                                    <option value="Redes">
+                                        Redes
+                                    </option>
+
+                                    <option value="Programación">
+                                        Programación
+                                    </option>
+
+                                    <option value="Bases de datos">
+                                        Bases de datos
+                                    </option>
+
+                                    <option value="Internet de las cosas (IoT)">
+                                        Internet de las cosas (IoT)
+                                    </option>
+
+                                </select>
+
+                                <div class="invalid-feedback">
+                                    Selecciona un tema válido.
+                                </div>
+
+                            </div>
+
+
+                            <!-- =========================
+                                 CAMPO NIVEL
+                            ========================== -->
+
+                            <div class="mb-3">
+
+                                <label
+                                    for="nivel"
+                                    class="form-label fw-semibold"
+                                >
+                                    Nivel académico
+                                </label>
+
+                                <select
+                                    id="nivel"
+                                    name="nivel"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecciona un nivel
+                                    </option>
+
+                                    <option value="Básico">
+                                        Básico
+                                    </option>
+
+                                    <option value="Intermedio">
+                                        Intermedio
+                                    </option>
+
+                                    <option value="Avanzado">
+                                        Avanzado
+                                    </option>
+
+                                </select>
+
+                                <div class="invalid-feedback">
+                                    Selecciona un nivel académico válido.
+                                </div>
+
+                            </div>
+
+
+                            <!-- =========================
+                                 CAMPO PREGUNTA
+                            ========================== -->
+
+                            <div class="mb-3">
+
+                                <label
+                                    for="pregunta"
+                                    class="form-label fw-semibold"
+                                >
+                                    Pregunta
+                                </label>
+
+                                <textarea
+                                    id="pregunta"
+                                    name="pregunta"
+                                    class="form-control"
+                                    rows="5"
+                                    minlength="5"
+                                    maxlength="500"
+                                    placeholder="Escribe aquí tu pregunta..."
+                                    aria-describedby="ayudaPregunta"
+                                    required
+                                ></textarea>
+
+                                <div class="invalid-feedback">
+                                    La pregunta debe contener entre
+                                    5 y 500 caracteres.
+                                </div>
+
+                                <div
+                                    id="ayudaPregunta"
+                                    class="form-text"
+                                >
+                                    Máximo 500 caracteres.
+                                </div>
+
+                            </div>
+
+
+                            <!-- =========================
+                                 CAMPO INTEGRACION
+                            ========================== -->
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="integracion"
+                                    class="form-label fw-semibold"
+                                >
+                                    Integración
+                                </label>
+
+                                <select
+                                    id="integracion"
+                                    name="integracion"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecciona una integración
+                                    </option>
+
+                                    <option value="nativo">
+                                        Nodo OpenAI (nativo)
+                                    </option>
+
+                                    <option value="http">
+                                        HTTP Request (Responses API)
+                                    </option>
+
+                                </select>
+
+                                <div class="invalid-feedback">
+                                    Selecciona una integración válida.
+                                </div>
+
+                            </div>
+
+
+                            <!-- =========================
+                                 BOTONES
+                            ========================== -->
+
+                            <div class="d-flex flex-wrap gap-2">
+
+                                <button
+                                    type="submit"
+                                    id="btnConsultar"
+                                    class="btn btn-primary"
+                                >
+                                    Consultar IA
+                                </button>
+
+                                <button
+                                    type="reset"
+                                    id="btnLimpiar"
+                                    class="btn btn-outline-secondary"
+                                >
+                                    Limpiar formulario
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================
+                     INDICADOR DE CARGA
+                ====================================== -->
+
+                <div
+                    id="estadoSolicitud"
+                    class="alert alert-info d-none"
+                    role="status"
+                    aria-live="polite"
+                >
+
+                    <span
+                        class="spinner-border spinner-border-sm me-2"
+                        aria-hidden="true"
+                    ></span>
+
+                    Consultando el asistente...
+
+                </div>
+
+
+                <!-- =====================================
+                     MENSAJES DE ERROR
+                ====================================== -->
+
+                <div
+                    id="mensajeError"
+                    class="alert alert-danger d-none"
+                    role="alert"
+                    aria-live="assertive"
+                ></div>
+
+
+                <!-- =====================================
+                     PANEL DE RESPUESTAS
+                ====================================== -->
+
+                <section
+                    id="panelRespuesta"
+                    class="card app-card d-none"
+                    aria-labelledby="tituloRespuesta"
+                >
+
+                    <div class="card-body p-4">
+
+                        <h2
+                            id="tituloRespuesta"
+                            class="h4 fw-bold mb-4"
+                        >
+                            Respuesta del asistente
+                        </h2>
+
+
+                        <!-- DATOS DE LA CONSULTA -->
+
+                        <div class="mb-3">
+
+                            <p>
+                                <strong>Tema:</strong>
+                                <span id="resultadoTema"></span>
+                            </p>
+
+                            <p>
+                                <strong>Nivel:</strong>
+                                <span id="resultadoNivel"></span>
+                            </p>
+
+                            <p>
+                                <strong>Integración:</strong>
+                                <span id="resultadoIntegracion"></span>
+                            </p>
+
+                        </div>
+
+                        <hr>
+
+
+                        <!-- RESPUESTA GENERADA -->
+
+                        <div
+                            id="textoRespuesta"
+                            class="respuesta-contenido text-break"
+                            role="status"
+                            aria-live="polite"
+                        ></div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         PIE DE PAGINA
+    ====================================== -->
+
+    <footer class="app-footer py-4 text-center">
+
+        <div class="container">
+
+            <p class="fw-bold mb-2">
+                3.4 Web App para Automatización IA
+            </p>
+
+            <p class="mb-2">
+                Inteligencia Artificial Aplicada a las TICS
+            </p>
+
+            <small class="d-block mb-1">
+                Desarrollado por Nicole Dayana Esparza Lares
+            </small>
+
+            <small class="d-block mb-1">
+                Ingeniería en Tecnologías de la Información
+                y Comunicaciones
+            </small>
+
+            <small class="d-block mb-1">
+                Instituto Tecnologico de Pachuca
+            </small>
+
+            <small class="d-block mt-2">
+                Proyecto académico | 2026
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================
+         BOOTSTRAP JAVASCRIPT
+    ====================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- =====================================
+         JAVASCRIPT MODULAR
+    ====================================== -->
+
+    <script
+        type="module"
+        src="./js/main.js"
+    ></script>
+
+</body>
+
+</html>

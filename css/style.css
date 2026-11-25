@@ -1,0 +1,1134 @@
+
+/* ============================================
+   NEO AI - FUTURISTIC DARK INTERFACE
+   Practica 3.4 - Automatizacion IA
+
+   Inteligencia Artificial Aplicada a las TICS
+
+   Estilos compatibles con:
+   - HTML5
+   - Bootstrap 5
+   - JavaScript modular
+   - OpenAI Nativo
+   - HTTP Request / Responses API
+   ============================================ */
+
+
+/* ============================================
+   1. VARIABLES Y PALETA DE COLORES
+============================================ */
+
+:root {
+
+    color-scheme: dark;
+
+    /* Fondos */
+    --bg-main: #0B1020;
+    --bg-secondary: #11182C;
+    --bg-card: #151E36;
+    --bg-input: #0D1529;
+
+    /* Colores de acento */
+    --primary: #8B5CF6;
+    --primary-hover: #A78BFA;
+    --cyan: #22D3EE;
+    --cyan-light: #67E8F9;
+
+    /* Textos */
+    --text-main: #F1F5FF;
+    --text-secondary: #B5C4DA;
+    --text-muted: #94A3B8;
+
+    /* Bordes */
+    --border: #344461;
+    --border-hover: #8B5CF6;
+
+    /* Estados */
+    --success: #34D399;
+    --danger: #F87171;
+    --warning: #FBBF24;
+
+    /* Sombras */
+    --shadow-card:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    --shadow-neon:
+        0 0 24px rgba(139, 92, 246, 0.25);
+
+    /* Transiciones */
+    --transition: 0.25s ease;
+
+}
+
+
+/* ============================================
+   2. RESET Y CONFIGURACION GENERAL
+============================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family:
+        "Segoe UI",
+        Inter,
+        Arial,
+        sans-serif;
+
+    background-color: var(--bg-main);
+
+    background-image:
+        radial-gradient(
+            circle at 10% 12%,
+            rgba(139, 92, 246, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 75%,
+            rgba(34, 211, 238, 0.07),
+            transparent 35%
+        );
+
+    color: var(--text-main);
+
+    overflow-x: hidden;
+
+}
+
+main {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+::selection {
+    background: var(--primary);
+    color: #FFFFFF;
+}
+
+
+/* ============================================
+   3. ENCABEZADO FUTURISTA
+============================================ */
+
+.app-header {
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            125deg,
+            #11182D 0%,
+            #202047 48%,
+            #112A42 100%
+        );
+
+    border-bottom:
+        1px solid rgba(139, 92, 246, 0.4);
+
+    text-align: center;
+
+}
+
+/* Luces de fondo */
+
+.app-header::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 25% 30%,
+            rgba(139, 92, 246, 0.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 65%,
+            rgba(34, 211, 238, 0.14),
+            transparent 35%
+        );
+
+    pointer-events: none;
+
+    animation: luzFlotante 9s ease-in-out infinite alternate;
+
+}
+
+/* Línea neón inferior */
+
+.app-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--primary),
+            var(--cyan),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px rgba(34, 211, 238, 0.5);
+
+}
+
+.app-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.app-header h1 {
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    color: #FFFFFF;
+
+    text-shadow:
+        0 0 25px rgba(139, 92, 246, 0.35);
+
+    animation: aparecerSuave 0.8s ease both;
+
+}
+
+.app-header .lead {
+
+    color: #D6E5FF;
+
+    font-size: clamp(1rem, 2vw, 1.2rem);
+
+    animation: aparecerSuave 1s ease both;
+
+}
+
+.app-header p.fw-semibold {
+
+    color: var(--cyan-light);
+
+    letter-spacing: 0.5px;
+
+    animation: aparecerSuave 1.2s ease both;
+
+}
+
+
+/* ============================================
+   4. TARJETAS DARK GLASS
+============================================ */
+
+.app-card {
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 34, 59, 0.98),
+            rgba(17, 25, 45, 0.98)
+        );
+
+    color: var(--text-main);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+
+    animation: subirSuave 0.65s ease both;
+
+}
+
+.app-card:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(139, 92, 246, 0.55);
+
+    box-shadow:
+        var(--shadow-card),
+        var(--shadow-neon);
+
+}
+
+.app-card .card-body {
+    padding: 2rem;
+}
+
+.app-card h2 {
+
+    color: var(--text-main);
+
+    font-weight: 700;
+
+}
+
+/* Corrige el gris claro de Bootstrap en dark mode */
+
+.app-card .text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+
+/* ============================================
+   5. FORMULARIO
+============================================ */
+
+.form-label {
+
+    color: var(--text-main);
+
+    font-weight: 600;
+
+    margin-bottom: 0.6rem;
+
+}
+
+.form-control,
+.form-select {
+
+    background-color: var(--bg-input);
+
+    color: var(--text-main);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 11px;
+
+    padding: 0.85rem 1rem;
+
+    font-size: 0.97rem;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+
+}
+
+.form-control:hover,
+.form-select:hover {
+
+    border-color:
+        rgba(139, 92, 246, 0.7);
+
+}
+
+.form-control:focus,
+.form-select:focus {
+
+    background-color: #121E37;
+
+    color: #FFFFFF;
+
+    border-color: var(--cyan);
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(34, 211, 238, 0.12),
+        0 0 18px rgba(34, 211, 238, 0.10);
+
+}
+
+.form-control::placeholder {
+    color: #A8B8CF;
+    opacity: 1;
+}
+
+.form-select {
+
+    cursor: pointer;
+
+    /* Flecha visible sobre fondo oscuro */
+    background-image:
+        url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23A5B4FC' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    background-size: 16px 12px;
+
+}
+
+.form-select option {
+
+    background: var(--bg-secondary);
+    color: var(--text-main);
+
+}
+
+textarea.form-control {
+
+    min-height: 145px;
+    resize: vertical;
+
+}
+
+.form-text {
+
+    color: var(--text-muted);
+
+    font-size: 0.84rem;
+
+    margin-top: 0.5rem;
+
+}
+
+
+/* ============================================
+   6. VALIDACIONES
+============================================ */
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+
+    border-color: var(--danger);
+
+    box-shadow:
+        0 0 0 1px rgba(248, 113, 113, 0.12);
+
+}
+
+.invalid-feedback {
+
+    color: #FDA4AF;
+
+    font-size: 0.85rem;
+
+    margin-top: 0.5rem;
+
+}
+
+
+/* ============================================
+   7. BOTONES FUTURISTAS
+============================================ */
+
+.btn {
+
+    border-radius: 11px;
+
+    padding: 0.8rem 1.5rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+
+}
+
+/* Boton principal */
+
+.btn-primary {
+
+    color: #FFFFFF;
+
+    background:
+        linear-gradient(
+            125deg,
+            #7C3AED,
+            #8B5CF6
+        );
+
+    border: 1px solid #9D75F9;
+
+    box-shadow:
+        0 5px 18px rgba(139, 92, 246, 0.25);
+
+}
+
+.btn-primary:hover {
+
+    color: #FFFFFF;
+
+    background:
+        linear-gradient(
+            125deg,
+            #8B5CF6,
+            #6D5DF0
+        );
+
+    border-color: var(--primary-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(139, 92, 246, 0.4);
+
+}
+
+.btn-primary:active {
+
+    transform: translateY(0);
+
+}
+
+/* Boton limpiar */
+
+.btn-outline-secondary {
+
+    color: #DAE5FA;
+
+    background: transparent;
+
+    border: 1px solid #60718D;
+
+}
+
+.btn-outline-secondary:hover {
+
+    color: #FFFFFF;
+
+    background: #263451;
+
+    border-color: var(--cyan);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(34, 211, 238, 0.1);
+
+}
+
+/* Botones deshabilitados */
+
+.btn:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+
+/* ============================================
+   8. INDICADOR DE CARGA
+============================================ */
+
+#estadoSolicitud {
+
+    background: rgba(34, 211, 238, 0.08);
+
+    color: #A5F3FC;
+
+    border:
+        1px solid rgba(34, 211, 238, 0.35);
+
+    border-radius: 13px;
+
+    padding: 1rem 1.3rem;
+
+    animation: aparecerSuave 0.3s ease both;
+
+}
+
+.spinner-border {
+
+    color: var(--cyan);
+
+    vertical-align: middle;
+
+}
+
+
+/* ============================================
+   9. MENSAJES DE ERROR
+============================================ */
+
+#mensajeError {
+
+    background: rgba(248, 113, 113, 0.09);
+
+    color: #FECACA;
+
+    border:
+        1px solid rgba(248, 113, 113, 0.45);
+
+    border-radius: 13px;
+
+    padding: 1rem 1.3rem;
+
+    animation: aparecerSuave 0.3s ease both;
+
+}
+
+
+/* ============================================
+   10. PANEL DE RESPUESTA
+============================================ */
+
+#panelRespuesta {
+
+    border:
+        1px solid rgba(34, 211, 238, 0.28);
+
+    border-left:
+        4px solid var(--cyan);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.28),
+        0 0 25px rgba(34, 211, 238, 0.05);
+
+    scroll-margin-top: 1.5rem;
+
+}
+
+#panelRespuesta h2 {
+
+    color: var(--cyan-light);
+
+}
+
+#panelRespuesta strong {
+
+    color: #E1E9FF;
+
+}
+
+/* Información de la consulta */
+
+#panelRespuesta .mb-3 p {
+
+    color: var(--text-secondary);
+
+    margin-bottom: 0.65rem;
+
+}
+
+#resultadoTema,
+#resultadoNivel,
+#resultadoIntegracion {
+
+    color: #C5B4FF;
+
+    font-weight: 500;
+
+}
+
+#panelRespuesta hr {
+
+    border-color: var(--border);
+
+    opacity: 1;
+
+    margin: 1.5rem 0;
+
+}
+
+
+/* ============================================
+   11. RESPUESTAS MARKDOWN
+============================================ */
+
+.respuesta-contenido {
+
+    color: #DDE7F7;
+
+    line-height: 1.85;
+
+    font-size: 0.98rem;
+
+    white-space: normal;
+
+    overflow-wrap: anywhere;
+
+}
+
+/* Titulos generados por OpenAI */
+
+.respuesta-titulo {
+
+    color: var(--cyan-light);
+
+    font-size: 1.18rem;
+
+    font-weight: 700;
+
+    margin-top: 1.8rem;
+
+    margin-bottom: 0.9rem;
+
+    padding-bottom: 0.5rem;
+
+    border-bottom:
+        1px solid rgba(34, 211, 238, 0.18);
+
+}
+
+.respuesta-titulo:first-child {
+
+    margin-top: 0;
+
+}
+
+/* Parrafos */
+
+.respuesta-parrafo {
+
+    color: #DDE7F7;
+
+    line-height: 1.85;
+
+    margin-bottom: 1rem;
+
+}
+
+/* Listas */
+
+.respuesta-lista {
+
+    padding-left: 1.5rem;
+
+    margin-bottom: 1.3rem;
+
+    color: #DDE7F7;
+
+}
+
+.respuesta-lista li {
+
+    margin-bottom: 0.55rem;
+
+    padding-left: 0.2rem;
+
+}
+
+.respuesta-lista li::marker {
+
+    color: var(--cyan);
+
+}
+
+/* Negritas */
+
+.respuesta-contenido strong {
+
+    font-weight: 700;
+
+    color: #C4B5FD;
+
+}
+
+/* Codigo en linea */
+
+.respuesta-contenido :not(pre) > code {
+
+    display: inline;
+
+    background: rgba(139, 92, 246, 0.17);
+
+    color: #D8CCFF;
+
+    padding: 0.18rem 0.4rem;
+
+    border:
+        1px solid rgba(139, 92, 246, 0.2);
+
+    border-radius: 5px;
+
+    font-size: 0.91em;
+
+    overflow-wrap: anywhere;
+
+}
+
+/* Bloques de codigo */
+
+.respuesta-codigo {
+
+    background: #080E1C;
+
+    color: #B9F4FF;
+
+    padding: 1.2rem;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(34, 211, 238, 0.22);
+
+    border-left:
+        3px solid var(--cyan);
+
+    margin: 1.2rem 0;
+
+    overflow-x: auto;
+
+    white-space: pre;
+
+    line-height: 1.65;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 0.9rem;
+
+}
+
+.respuesta-codigo code {
+
+    color: inherit;
+    font-size: inherit;
+
+}
+
+
+/* ============================================
+   12. PIE DE PAGINA
+============================================ */
+
+.app-footer {
+
+    position: relative;
+
+    margin-top: auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #10172A,
+            #0B1020
+        );
+
+    color: var(--text-secondary);
+
+    border-top:
+        1px solid rgba(139, 92, 246, 0.3);
+
+}
+
+.app-footer p.fw-bold {
+
+    color: var(--text-main);
+
+    font-size: 1rem;
+
+}
+
+.app-footer p {
+
+    color: var(--cyan-light);
+
+}
+
+.app-footer small {
+
+    color: var(--text-secondary);
+
+    line-height: 1.7;
+
+}
+
+
+/* ============================================
+   13. ACCESIBILIDAD
+============================================ */
+
+:focus-visible {
+
+    outline:
+        3px solid var(--cyan);
+
+    outline-offset: 3px;
+
+}
+
+.btn:focus-visible {
+
+    outline:
+        3px solid var(--cyan-light);
+
+    outline-offset: 3px;
+
+    box-shadow:
+        0 0 0 5px rgba(34, 211, 238, 0.15);
+
+}
+
+
+/* ============================================
+   14. ANIMACIONES
+============================================ */
+
+/* Aparicion suave */
+
+@keyframes aparecerSuave {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Entrada de tarjetas */
+
+@keyframes subirSuave {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Movimiento sutil de iluminacion */
+
+@keyframes luzFlotante {
+
+    from {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
+}
+
+
+/* ============================================
+   15. SCROLLBAR
+============================================ */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+    height: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #0B1020;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #435477;
+
+    border-radius: 10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: var(--primary);
+
+}
+
+
+/* ============================================
+   16. RESPONSIVE - TABLETS
+============================================ */
+
+@media (max-width: 991px) {
+
+    .app-header h1 {
+
+        font-size: 2.3rem;
+
+    }
+
+    .app-card .card-body {
+
+        padding: 1.7rem;
+
+    }
+
+}
+
+
+/* ============================================
+   17. RESPONSIVE - MOVILES
+============================================ */
+
+@media (max-width: 576px) {
+
+    .app-header {
+
+        padding: 2.7rem 1rem !important;
+
+    }
+
+    .app-header h1 {
+
+        font-size: 1.9rem;
+
+        letter-spacing: -0.5px;
+
+    }
+
+    .app-header .lead {
+
+        font-size: 0.98rem;
+
+    }
+
+    .app-header p.fw-semibold {
+
+        font-size: 0.9rem;
+
+    }
+
+    main.container {
+
+        margin-top: 1.7rem !important;
+        margin-bottom: 1.7rem !important;
+
+    }
+
+    .app-card {
+
+        border-radius: 15px;
+
+    }
+
+    .app-card .card-body {
+
+        padding: 1.25rem !important;
+
+    }
+
+    .app-card h2 {
+
+        font-size: 1.25rem;
+
+    }
+
+    .form-control,
+    .form-select {
+
+        font-size: 1rem;
+
+        padding: 0.85rem;
+
+    }
+
+    .btn {
+
+        width: 100%;
+
+        padding: 0.9rem;
+
+    }
+
+    .respuesta-contenido {
+
+        font-size: 0.94rem;
+
+        line-height: 1.75;
+
+    }
+
+    .respuesta-titulo {
+
+        font-size: 1.08rem;
+
+    }
+
+    .respuesta-codigo {
+
+        font-size: 0.82rem;
+
+        padding: 0.9rem;
+
+    }
+
+    .app-footer {
+
+        padding: 1.8rem 1rem !important;
+
+    }
+
+}
+
+
+/* ============================================
+   18. ACCESIBILIDAD - MOVIMIENTO REDUCIDO
+============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+}
