@@ -1,7 +1,7 @@
 
 # 🤖 NEO AI | Web App para Automatización IA
 
-### Práctica 3.4 — Inteligencia Artificial Aplicada a las TICS
+### Práctica 3.5 — Inteligencia Artificial Aplicada a las TICS
 
 Aplicación web académica responsiva que integra inteligencia artificial mediante **OpenAI, n8n Cloud y GitHub Pages**, permitiendo realizar consultas con diferentes niveles de profundidad y seleccionar entre dos mecanismos de integración.
 
